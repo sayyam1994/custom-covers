@@ -12,5 +12,38 @@ model Configuration {
   width Int
   height Int
   imageUrl String
+  colour CaseColour?
+  model PhoneModel?
+  material CaseMaterial?
+  finish CaseFinish?
   croppedImageUrl String?
+}
+
+enum OrderStatus {
+  fulfilled
+  shipped
+  awaiting_shipment
+}
+
+enum CaseColour {
+  black
+  blue
+  rose
+}
+
+enum PhoneModel {
+  iphone12
+  iphone13
+  iphone14
+  iphone15
+}
+
+enum CaseMaterial {
+  silicone
+  polycarbonate
+}
+
+enum CaseFinish {
+  smooth
+  textured
 }
