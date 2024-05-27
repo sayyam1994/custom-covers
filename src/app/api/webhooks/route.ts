@@ -17,7 +17,7 @@ export async function POST(req: Request) {
       return new Response('Invalid signature', { status: 400 })
     }
 
-    const event = await stripe.webhooks.constructEvent(
+    const event = stripe.webhooks.constructEvent(
       body,
       signature,
       process.env.STRIPE_WEBHOOK_SECRET!
@@ -54,23 +54,6 @@ export async function POST(req: Request) {
               street: shippingAddress?.line1!,
               postalCode: shippingAddress?.postal_code!,
               state: shippingAddress?.state!
-            }
-          }
-        }
-      })
-
-      await db.order.update({
-        where: { id: orderId },
-        data: {
-          isPaid: true,
-          billingAddress: {
-            create: {
-              name: session.customer_details?.name!,
-              city: billingAddress?.city!,
-              country: billingAddress?.country!,
-              street: billingAddress?.line1!,
-              postalCode: billingAddress?.postal_code!,
-              state: billingAddress?.state!
             }
           }
         }
