@@ -65,8 +65,8 @@ const OrderReceivedEmail = ({
                 <Text style={global.paragraphWithBold}>Order ID</Text>
                 <Text style={track.number}>{orderId}</Text>
               </Column>
-              <Column>
-                <Text style={global.paragraphWithBold}>Order ID</Text>
+              <Column style={{ marginLeft: 20 }}>
+                <Text style={global.paragraphWithBold}>Order Date</Text>
                 <Text style={track.number}>{orderDate}</Text>
               </Column>
             </Row>
